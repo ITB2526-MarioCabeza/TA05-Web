@@ -1,25 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Índice de Mario</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker Portfolio v3.0</title>
+    <link rel="stylesheet" href="css.css">
 </head>
-<body>
-  <h1>Índice de Mario</h1>
+<body class="terminal-theme">
 
-  <ul>
-    <li><a href="#bio">Biografía de Mario</a></li>
-    <li><a href="#logros">Logros</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-  </ul>
+    <header class="logotip-area">
+        <div class="terminal-text">[ LOGOTIP ]</div>
+    </header>
 
-  <h2 id="bio">Biografía de Mario</h2>
-  <p>Aquí puedes escribir la biografía.</p>
+    <header class="title-area">
+        <h1 id="main-title">CONSOLA_SISTEMA</h1>
+    </header>
 
-  <h2 id="logros">Logros</h2>
-  <p>Lista de logros de Mario.</p>
+    <aside class="menu-area">
+        <nav>
+            <div class="user-id">ID: ADMIN_ROOT</div>
+            <ul>
+                <li><a href="#" onclick="cargarContenido('inicio')">> INICIO</a></li>
+                <li><a href="#" onclick="cargarContenido('proyecto1')">> PROYECTO_1</a></li>
+                <li><a href="#" onclick="cargarContenido('proyecto2')">> PROYECTO_2</a></li>
+                <li><a href="#" onclick="cargarContenido('conjunto')">> CONJUNTO_PROY</a></li>
+            </ul>
+        </nav>
+    </aside>
 
-  <h2 id="contacto">Contacto</h2>
-  <p>Email: mario@ejemplo.com</p>
+    <main class="content-area" id="project-container">
+        </main>
+
+    <footer class="footer-area">
+        <div class="status-bar">STATUS: ENCRYPTED // CONNECTION: SECURE</div>
+        <p>Contact information: info@tuweb.com</p>
+    </footer>
+
+    <script src="JavaScript.js"></script>
 </body>
 </html>
