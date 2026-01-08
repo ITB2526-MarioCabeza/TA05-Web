@@ -56,6 +56,14 @@ header, aside, main, footer {
     margin: 0 0 10px 0;
 }
 
+.contenedor-proyectos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
 .description-text {
     color: var(--info-blue); /* Azul según tus capturas de texto */
     font-size: 1.1rem;
