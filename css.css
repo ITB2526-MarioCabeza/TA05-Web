@@ -1,9 +1,19 @@
 /* Configuración de Colores Hacker */
+/* Update these values in your css.css file */
 :root {
     --bg-black: #000000;
     --neon-green: #00ff41;
     --dark-line: #003b00;
-    --info-blue: #4da6ff;
+    /* New Cyan tone for better readability */
+    --info-blue: #00f2ff;
+}
+
+.description-text {
+    color: var(--info-blue);
+    font-size: 1.1rem;
+    line-height: 1.5;
+    /* Adding a subtle glow to make it pop like a real screen */
+    text-shadow: 0 0 5px rgba(0, 242, 255, 0.5);
 }
 
 body {
@@ -50,6 +60,90 @@ header, aside, main, footer {
     background: transparent !important; /* Sin fondos grises */
 }
 
+/* Mejora de transición para el contenido */
+#project-container {
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-out;
+}
+
+/* Efecto de parpadeo (cursor de terminal) */
+.description-text::after {
+    content: "_";
+    animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Animación de colores RGB y movimiento loco */
+@keyframes rgb-crazy {
+    0% { color: #ff0000; transform: translate(1px, 1px) skewX(0deg); text-shadow: 2px 0 #0ff; }
+    20% { color: #00ff00; transform: translate(-1px, -2px) skewX(10deg); text-shadow: -2px 0 #f0f; }
+    40% { color: #0000ff; transform: translate(-2px, 1px) skewX(-10deg); text-shadow: 1px 1px #ff0; }
+    60% { color: #ffff00; transform: translate(2px, 1px) skewX(5deg); text-shadow: -1px -1px #0ff; }
+    80% { color: #00ffff; transform: translate(-1px, -1px) skewX(-5deg); text-shadow: 2px -2px #f0f; }
+    100% { color: #ff00ff; transform: translate(1px, -2px) skewX(0deg); text-shadow: -1px 2px #ff0; }
+}
+
+/* Aplicar el efecto a los enlaces del menú al pasar el ratón */
+nav ul li a:hover {
+    display: inline-block;
+    animation: rgb-crazy 0.15s infinite; /* Muy rápido para que parezca 'loco' */
+    cursor: pointer;
+    transition: none; /* Quitamos transiciones para que el efecto sea brusco y digital */
+}
+
+/* Opcional: Si quieres que además vayan desapareciendo (opacidad) */
+nav ul li a:active {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+/* Clase para resaltar el enlace activo */
+.active-link {
+    text-shadow: 0 0 10px var(--neon-green);
+    border-left: 3px solid var(--neon-green);
+    padding-left: 10px;
+}
+
+/* Animación de distorsión Glitch */
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+.glitch-effect {
+    display: inline-block;
+    animation: glitch 0.2s infinite;
+    color: #fff;
+    text-shadow: 2px 0 red, -2px 0 blue;
+}
+
+/* Estilo para los placeholders de imagen más futuristas */
+.img-placeholder {
+    position: relative;
+    overflow: hidden;
+    background: rgba(0, 59, 0, 0.1);
+}
+
+.img-placeholder::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 2px;
+    background: var(--neon-green);
+    opacity: 0.3;
+    animation: scanline 3s linear infinite;
+}
+
+@keyframes scanline {
+    0% { top: 0%; }
+    100% { top: 100%; }
+}
+
 .project-node h2 {
     color: #ffffff;
     font-size: 1.2rem;
@@ -57,9 +151,10 @@ header, aside, main, footer {
 }
 
 .description-text {
-    color: var(--info-blue); /* Azul según tus capturas de texto */
+    color: var(--info-blue);
     font-size: 1.1rem;
     line-height: 1.5;
+    font-weight: 600; /* Añade un poco más de grosor para que resalte más */
 }
 
 /* Galería de imágenes estilo wireframe */
