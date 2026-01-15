@@ -2,43 +2,68 @@
 let currentMatrixColor = '#00ff41';
 
 // Base de datos de los 10 Sub-Proyectos (Dentro de Project Set)
-// Base de datos de los 10 Sub-Proyectos (Dentro de Project Set)
-// CORREGIDO: Ahora usan TUS archivos locales (.jpg)
+// CORREGIDO: Añadido "Sources/" delante de cada imagen
 const subProjectsDB = [
-    // Usamos tus fotos reales para los primeros:
     {
         id: 0,
         title: '01_AI_CORE',
         desc: 'Deep learning algorithms for predictive user behavior analysis.',
-        img: '01_AI.jpeg'  // <--- Tu foto real
+        img: 'Sources/01_AI.jpeg'  // <--- RUTA CORREGIDA
     },
     {
         id: 1,
         title: '02_CYBER_WALL',
         desc: 'Next-gen firewall architecture against quantum decryption attacks.',
-        img: '02_Cyber.jpg' // <--- Tu foto real
+        img: 'Sources/02_Cyber.jpg' // <--- RUTA CORREGIDA
     },
     {
         id: 2,
         title: '03_IOT_GRID',
         desc: 'Smart home automation using decentralized sensor networks.',
-        img: '03_IOT.jpg'  // <--- Tu foto real
+        img: 'Sources/03_IOT.jpg'  // <--- RUTA CORREGIDA
     },
     {
         id: 3,
         title: '04_BIG_DATA',
         desc: 'Processing 5TB/s of raw data to find hidden market patterns.',
-        img: '04_BigData.jpg' // <--- Tu foto real
+        img: 'Sources/04_BigData.jpg' // <--- RUTA CORREGIDA
     },
-
-    // --- Para el resto (del 5 al 10), repito tus fotos para que no salgan rotas ---
-    // (Cuando tengas fotos nuevas, cambia el nombre aquí)
-    { id: 4, title: '05_ROBO_TECH', desc: 'Autonomous robotic arms assembly.', img: '05_Robotics.jpg' },
-    { id: 5, title: '06_CLOUD_SYNC', desc: 'Serverless architecture zero latency.', img: '06_Server.jpg' },
-    { id: 6, title: '07_CRYPTO_V', desc: 'Blockchain ledger for secure voting.', img: '07_Crypto.jpg' },
-    { id: 7, title: '08_VIRTUAL_R', desc: 'Immersive VR interface topology.', img: '08_VR.jpg' },
-    { id: 8, title: '09_NET_WORK', desc: 'Advanced VPN tunneling protocols.', img: '09_VPN.jpg' },
-    { id: 9, title: '10_BIO_HACK', desc: 'Biometric iris scanning integration.', img: '10_Biometric.jpg' }
+    {
+        id: 4,
+        title: '05_ROBO_TECH',
+        desc: 'Autonomous robotic arms assembly.',
+        img: 'Sources/05_Robotics.jpg' // <--- RUTA CORREGIDA
+    },
+    {
+        id: 5,
+        title: '06_CLOUD_SYNC',
+        desc: 'Serverless architecture zero latency.',
+        img: 'Sources/06_Server.jpg' // <--- RUTA CORREGIDA
+    },
+    {
+        id: 6,
+        title: '07_CRYPTO_V',
+        desc: 'Blockchain ledger for secure voting.',
+        img: 'Sources/07_Crypto.jpg' // <--- RUTA CORREGIDA
+    },
+    {
+        id: 7,
+        title: '08_VIRTUAL_R',
+        desc: 'Immersive VR interface topology.',
+        img: 'Sources/08_VR.jpg' // <--- RUTA CORREGIDA
+    },
+    {
+        id: 8,
+        title: '09_NET_WORK',
+        desc: 'Advanced VPN tunneling protocols.',
+        img: 'Sources/09_VPN.jpg' // <--- RUTA CORREGIDA
+    },
+    {
+        id: 9,
+        title: '10_BIO_HACK',
+        desc: 'Biometric iris scanning integration.',
+        img: 'Sources/10_Biometric.jpg' // <--- RUTA CORREGIDA
+    }
 ];
 
 // Colores principales de las secciones del menú lateral
@@ -46,7 +71,7 @@ const sectionColors = {
     'inicio': '#00ff41',
     'proyecto1': '#ff0000',
     'proyecto2': '#ffff00',
-    'conjunto': '#00f2ff', // Azul Cian para Project Set
+    'conjunto': '#00f2ff',
     'contacto': '#ff9900'
 };
 
@@ -65,17 +90,11 @@ function iniciarFondoHacker() {
     const gotas = Array(Math.floor(columnas)).fill(1);
 
     function dibujar() {
-        // 1. IMPORTANTE: Ponemos la opacidad al máximo para pintar el fondo negro semitransparente
-        // (Esto es lo que borra las letras viejas y crea el rastro)
         ctx.globalAlpha = 1.0;
         ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
         ctx.fillRect(0, 0, width, height);
 
-        // 2. AHORA SÍ: Bajamos la intensidad para las letras nuevas
-        // Valor 0.2 = Muy apagado (ideal para leer encima)
-        // Valor 1.0 = Totalmente brillante (como lo tenías antes)
         ctx.globalAlpha = 0.2;
-
         ctx.fillStyle = currentMatrixColor;
         ctx.font = fontSize + "px monospace";
 
@@ -94,19 +113,15 @@ function iniciarFondoHacker() {
 }
 
 // --- 3. CONTENIDO PRINCIPAL ---
-// Función para generar el grid de 10 proyectos automáticamente
 function generarGridProyectos() {
     let html = '<p class="description-text">SELECT A SUB-SYSTEM TO INITIALIZE:</p><div class="projects-grid">';
-
     subProjectsDB.forEach((item, index) => {
-        // Cada div tiene un onclick que llama a verSubProyecto con su número
         html += `
             <div class="grid-item" onclick="verSubProyecto(${index})">
                 <h3>[ ${item.title} ]</h3>
             </div>
         `;
     });
-
     html += '</div>';
     return html;
 }
@@ -130,8 +145,8 @@ const contentData = {
             <div class="project-node">
                 <p class="description-text">SYSTEM ANALYSIS: A comprehensive study on the impact of extended interactive screen time.</p>
                 <div class="image-grid">
-                   <img src="Proyect1.jpg" class="hacker-img" alt="P1 A">
-                   <img src="Proyect01.jpg" class="hacker-img" alt="P1 B">
+                   <img src="Sources/Proyect1.jpg" class="hacker-img" alt="P1 A">
+                   <img src="Sources/Proyect01.jpg" class="hacker-img" alt="P1 B">
                 </div>
             </div>`
     },
@@ -141,15 +156,14 @@ const contentData = {
             <div class="project-node">
                 <p class="description-text">SYSTEM ANALYSIS: Investigation into auditory stimuli processing.</p>
                 <div class="image-grid">
-                   <img src="Proyect2.jpg" class="hacker-img" alt="P2 A">
-                   <img src="Proyect02.jpg" class="hacker-img" alt="P2 B">
+                   <img src="Sources/Proyect2.jpg" class="hacker-img" alt="P2 A">
+                   <img src="Sources/Proyect02.jpg" class="hacker-img" alt="P2 B">
                 </div>
             </div>`
     },
-    // AQUÍ ESTÁ EL CAMBIO: 'conjunto' ya no tiene HTML fijo, lo generamos dinámicamente
     'conjunto': {
         titulo: 'ARCHIVE // PROJECT_SET_INDEX',
-        html: '' // Se rellena con la función
+        html: ''
     },
     'contacto': {
         titulo: 'COMM_LINK // UPLINK',
@@ -175,7 +189,6 @@ function cargarContenido(id) {
     let data = contentData[id];
     const newColor = sectionColors[id] || '#00ff41';
 
-    // Si entramos en 'conjunto', generamos el HTML del grid en ese momento
     if (id === 'conjunto') {
         data.html = generarGridProyectos();
     }
@@ -195,20 +208,15 @@ function cargarContenido(id) {
     }
 }
 
-// NUEVA FUNCIÓN: Para ver el detalle de uno de los 10 proyectos
 function verSubProyecto(index) {
     const item = subProjectsDB[index];
     const container = document.getElementById('project-container');
     const mainTitle = document.getElementById('main-title');
 
-    // Efecto de transición
     container.style.opacity = 0;
 
     setTimeout(() => {
-        // Cambiamos el título
         mainTitle.textContent = `ARCHIVE // ${item.title}`;
-
-        // Inyectamos el HTML del detalle (Botón volver + Texto + Foto)
         container.innerHTML = `
             <div class="project-node">
                 <a href="#" onclick="cargarContenido('conjunto')" class="btn-back">< BACK TO LIST</a>
@@ -243,7 +251,6 @@ function procesarFormularioReal(e) {
     }).catch(e => status.innerText = "NETWORK ERROR.");
 }
 
-// Efecto letras en menú
 const letters = "ABCDEF0123456789";
 document.querySelectorAll('nav ul li a').forEach(link => {
     link.dataset.original = link.innerText;
